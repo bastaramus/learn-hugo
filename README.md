@@ -70,6 +70,67 @@
      ```
      and browse to the provided URL.
 
+**🗓️ January 26, 2024**
 
+1. **Bootstrap**
+   - Today I am going to play with static content for Hugo. I've just realized I need to take a look at Bootstrap. Adding to-do list to the end of this thread.
+
+2. **Static dir in HUGO**
+   - I've put the CSS from [here](https://raw.githubusercontent.com/zwbetz-gh/make-a-hugo-blog-from-scratch/master/static/css/bootstrap.min.css) into the file `static/css/bootstrap.min.css`.
+   - I've replaced the CDN URL to the Bootstrap CSS in the `layouts/index.html` with content from my static directory, here is the new code:
+     ```html
+     {{ $css := "css/bootstrap.min.css" | relURL }}
+     <link rel="stylesheet" href="{{ $css }}">
+     ```
+
+3. **Single Page Layout**
+   - Layout for our single pages (posts) will be here: `layouts/_default/single.html`. It contains the following content:
+     ```html
+     <!doctype html>
+     <html lang="en">
+       <head>
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         {{ $css := "css/bootstrap.min.css" | relURL }}
+         <link rel="stylesheet" href="{{ $css }}">
+         <title>{{ .Title }}</title>
+       </head>
+       <body>
+         <div class="container">
+           <main id="main">
+             <h1>{{ .Title }}</h1>
+             {{ .Content }}
+           </main>
+         </div>
+       </body>
+     </html>
+     ```
+   - In the `archetypes` directory, we have a list of 'templates' with different types of content. Let's try to edit `draft = true` to `draft = false`.
+   - The next one may be a good idea. Let's change the default URL for posts from `/blog/:filename:` to just `/:filename:`. Edit site config `hugo.toml`:
+     ```toml
+     [permalinks]
+       blog = "/:filename/"
+     ```
+   - Create a new page with the command:
+     ```bash
+     hugo new blog/first-page.md
+     ```
+   - Adding tags to this page's front matter:
+     ```
+     tags = ["anime", "one piece"]
+     ```
+   - Adding the content. I've added some static files to the assets directory so Hugo can process them. They are used in the `first-page.md` file.
+   - To display images with my custom formatting and to process them via Hugo, let's create our own shortcode. Create a file `layouts/shortcodes/img.html`. Now I can use this shortcode in my Markdown file.
+
+
+## To-Do List 📝
+
+### Tasks
+🔲 **Get familiar with Bootstrap**
+
+🔲 **How to add Bootstrap JS to your HUGO portal?**
+
+### Completed Tasks
+✅ **Completed Task Name**
 
 *Stay tuned for updates as I progress through my Hugo learning journey!* 🌟 🌈 🦄

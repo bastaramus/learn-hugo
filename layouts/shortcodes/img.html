@@ -1,0 +1,12 @@
+{{ $src := .Get "src" }}
+{{ $width := .Get "width" }}
+{{ $image := resources.Get $src }}
+
+{{ if $width }}
+    {{/* Resize image if width is provided */}}
+    {{ $resizedImage := $image.Resize $width }}
+    <img src="{{ $resizedImage.RelPermalink }}" alt="{{ $src }}">
+{{ else }}
+    {{/* Use original image if width is not provided */}}
+    <img src="{{ $image.RelPermalink }}" alt="{{ $src }}">
+{{ end }}
