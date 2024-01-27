@@ -1,0 +1,6 @@
+.list-group-item {
+    border-radius: 0.25rem; /* Rounded corners */
+  }
+  .list-group-item + .list-group-item {
+    margin-top: 10px; /* Spacing between items */
+  }

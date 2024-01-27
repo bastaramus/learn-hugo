@@ -122,6 +122,25 @@
    - Adding the content. I've added some static files to the assets directory so Hugo can process them. They are used in the `first-page.md` file.
    - To display images with my custom formatting and to process them via Hugo, let's create our own shortcode. Create a file `layouts/shortcodes/img.html`. Now I can use this shortcode in my Markdown file.
 
+**🗓️ January 27, 2024**
+
+1. **Baseof Layout**
+   - Now I think it was better to start with `layouts/_default/baseof.html`. It is a default template for any other pages like homepage or single page. Let's create it now and move the base HTML code to it.
+   - Look at that file, there we have:
+     ```
+     {{ block "main" . }}{{ end }}
+     ```
+     This piece of code defines a block named "main". The `.` symbol passes the current context to the block. Now, for example, we can edit `single.html`, the `{{ define "main" }}` section will override the "main" block from `baseof.html` with the specific content for a single page.
+
+2. **Partials Layout**
+   - Learn about partials: [Partials in Hugo](https://gohugo.io/templates/partials/#readout). Here you can define footer, header, head parts of your pages.
+   - I've created a directory `layouts/partials/head.html` with the head component. And then instead of having this code in the `baseof.html`, I've added a calling of this partial: `{{ partial "head.html" . }}`.
+
+3. **List Layout**
+   - List layout is a layout for parent pages. I've created two more pages with content to have a set of pages.
+   - I've created a list template `layouts/_default/list.html`.
+   - I've added my own styles to `layouts/_default/list.html` and put them in the `assets/css/list.css` file.
+
 
 ## To-Do List 📝
 

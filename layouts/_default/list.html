@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+{{ $style := resources.Get "css/list.css" }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" type="text/css">
+
+
+<h1 class="mb-4">{{ .Title }}</h1>
+<div class="list-group">
+  {{ range .Pages.ByPublishDate.Reverse }}
+    <a href="{{ .RelPermalink }}" class="list-group-item list-group-item-action rounded mb-2 shadow-sm">
+      {{ .Title }}
+    </a>
+  {{ end }}
+</div>
+
+{{ end }}
