@@ -1,0 +1,12 @@
+<div id="nav-border" class="container">
+    <nav id="nav" class="nav justify-content-center">
+      {{ range .Site.Menus.main }}
+        {{ $svgPath := printf "svg/%s.svg" .Pre }}
+        {{ $svgIcon := resources.Get $svgPath | resources.Minify | resources.Fingerprint }}
+        {{ $text := print $svgIcon.Content " " .Name | safeHTML }}
+
+        <a class="nav-link" href="{{ .URL }}">{{ $text }}</a>
+      {{ end }}
+    </nav>
+  </div>
+  

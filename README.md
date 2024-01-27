@@ -141,6 +141,12 @@
    - I've created a list template `layouts/_default/list.html`.
    - I've added my own styles to `layouts/_default/list.html` and put them in the `assets/css/list.css` file.
 
+4. **Menus**
+   - Read about menu templates in Hugo here: [Menu Templates in Hugo](https://gohugo.io/templates/menu-templates/#readout).
+   - I've created a menu component at `layouts/partials/nav.html`.
+   - This component has been added to the `baseof.html` template.
+   - SVG icons have been added as assets, allowing them to be processed by the Hugo engine. In `nav.html`, the menu configuration is read, and icons are set using the 'pre' configuration key.
+
 
 ## To-Do List 📝
 
