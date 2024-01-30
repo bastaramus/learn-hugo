@@ -1,6 +1,14 @@
 .list-group-item {
     border-radius: 0.25rem; /* Rounded corners */
   }
-  .list-group-item + .list-group-item {
-    margin-top: 10px; /* Spacing between items */
+  .date-and-tags {
+    margin-bottom: 0px; /* Spacing between items */
+    margin-top: 30px;
   }
+
+  .date-and-tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}

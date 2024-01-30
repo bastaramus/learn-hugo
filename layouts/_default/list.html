@@ -7,9 +7,9 @@
 <h1 class="mb-4">{{ .Title }}</h1>
 <div class="list-group">
     {{ range .Pages.ByPublishDate.Reverse }}
+      {{ partial "date-and-tags.html" . }}
       <a href="{{ .RelPermalink }}" class="list-group-item list-group-item-action rounded mb-2 shadow-sm d-flex justify-content-between align-items-center">
         <span>{{ .Title }}</span>
-        <small class="text-muted">{{ .Date.Format "January 2, 2006" }}</small>
       </a>
     {{ end }}
   </div>

@@ -1,0 +1,20 @@
+{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+
+<div class="date-and-tags ">
+    <div class="date-section">
+        <i data-feather="calendar"></i>
+        <small class="text-muted">
+            <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+        </small>
+    </div>
+    <div class="tags-section">
+        {{ with .Params.tags }}
+            <i data-feather="tag"></i>
+            {{ range . }}
+                {{ $href := print (relURL "tags/") (urlize .) }}
+                <a class="badge badge-pill badge-secondary" href="{{ $href }}">{{ . }}</a>
+            {{ end }}
+        {{ end }}
+    </div>  
+</div>
