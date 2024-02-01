@@ -147,6 +147,21 @@
    - This component has been added to the `baseof.html` template.
    - SVG icons have been added as assets, allowing them to be processed by the Hugo engine. In `nav.html`, the menu configuration is read, and icons are set using the 'pre' configuration key.
 
+**🗓️ January 27, 2024**
+
+1. **Partial with tags and dates**
+    - I've created a file `layouts/partials/date-and-tags.html`. It is a peace of code to get a list of tags and dates. Not sure it is useful as partial.
+
+**🗓️ February 01, 2024**
+
+1. **Layout for a specific page**
+    - If we want to change a layout of a specific page, we can create a directory with it name (in case it is list page), or a layout html file with name of the single page.
+    - I have create a layout page `layouts/_default/taxonomy.html` to have a different page for the list of tags.
+
+2. **Style Tweaks**
+    - I've added a file `layouts/partials/style.html`. It is styles added to hugo engine, not a plain .css. Because there are some templating.
+    - I've added this partial to `layouts/partials/head.html`
+
 
 ## To-Do List 📝
 

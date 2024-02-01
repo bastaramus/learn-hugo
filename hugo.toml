@@ -4,6 +4,7 @@ title = 'Learn Hugo'
 
 [params]
   dateFormat = "January 2, 2006"
+  favicon = "/favicon.ico"
 
 [permalinks]
   blog = "/:filename/"
